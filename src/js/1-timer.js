@@ -1,3 +1,8 @@
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 const startBtn = document.querySelector('.input-btn');
 const dateInput = document.querySelector('#datetime-picker');
 const daysEl = document.querySelector('[data-days]');
