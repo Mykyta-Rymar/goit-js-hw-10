@@ -19,8 +19,7 @@ flatpickr('#datetime-picker', {
   dateFormat: 'Y-m-d H:i',
   enableTime: true,
   time_24hr: true,
-  defaultDate: 'today',
-  locale: 'uk',
+  defaultDate: new Date(),
   onClose(selectedDates) {
     selectedDate = selectedDates[0];
 
@@ -49,6 +48,8 @@ startBtn.addEventListener('click', () => {
     if (timeDiff <= 0) {
       clearInterval(timerId);
       updateTimerUI(0);
+      dateInput.disabled = false;
+      startBtn.disabled = true;
       return;
     }
 
