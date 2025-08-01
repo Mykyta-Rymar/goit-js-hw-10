@@ -1,5 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const startBtn = document.querySelector('.input-btn');
 const dateInput = document.querySelector('#datetime-picker');
@@ -9,7 +11,6 @@ const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
 
 startBtn.disabled = true;
-startBtn.style.background = '#cfcfcf;';
 
 let selectedDate = null;
 let timerId = null;
@@ -24,7 +25,12 @@ flatpickr('#datetime-picker', {
     selectedDate = selectedDates[0];
 
     if (selectedDate <= new Date()) {
-      alert('Please choose a date in the future');
+      iziToast.error({
+        title: 'Помилка',
+        message: 'Будь ласка, оберіть дату в майбутньому',
+        position: 'topRight',
+        timeout: 4000,
+      });
       startBtn.disabled = true;
     } else {
       startBtn.disabled = false;
@@ -35,7 +41,6 @@ flatpickr('#datetime-picker', {
 startBtn.addEventListener('click', () => {
   startBtn.disabled = true;
   dateInput.disabled = true;
-  startBtn.style.background = '#cfcfcf;';
 
   timerId = setInterval(() => {
     const now = new Date();
@@ -75,5 +80,5 @@ function convertMs(ms) {
 }
 
 function addLeadingZero(value) {
-  return String(value).padStart(2, '0');
+  return value.toString().padStart(2, '0');
 }

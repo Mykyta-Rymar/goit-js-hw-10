@@ -50,3 +50,8 @@ body {
   line-height: 1.5;
   color: #2e2f42;
 }
+
+.input-btn:disabled {
+  background-color: #cfcfcf;
+  cursor: not-allowed;
+}
