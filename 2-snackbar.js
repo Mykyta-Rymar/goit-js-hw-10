@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";import{i as s}from"./assets/vendor-BbbuE1sJ.js";const o=document.querySelector(".form");o.addEventListener("submit",r=>{r.preventDefault();const t=new FormData(o),i=Number(t.get("delay")),m=t.get("state");((e,n)=>new Promise((c,a)=>{setTimeout(()=>{n==="fulfilled"?c(e):a(e)},e)}))(i,m).then(e=>{s.success({title:"✅ Success",message:`Fulfilled promise in ${e}ms`,position:"topRight"})}).catch(e=>{s.error({title:"❌ Error",message:`Rejected promise in ${e}ms`,position:"topRight"})})});
+//# sourceMappingURL=2-snackbar.js.map
